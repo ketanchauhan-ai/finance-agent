@@ -1,0 +1,5 @@
+ollama 
+yfinance 
+pandas 
+python-dotenv 
+streamlit
