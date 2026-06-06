@@ -1,30 +1,35 @@
 from stock_data import get_stock_data
+from news_data import get_company_news
 from llm import ask_llm
 
-stock = get_stock_data("TCS.NS")
+stock_data = get_stock_data("TCS.NS")
+
+news = get_company_news("TCS")
 
 prompt = f"""
 You are a professional equity research analyst.
 
-Only use the information provided.
+Use ONLY the information below.
 
-Do not make up facts.
+STOCK DATA:
+{stock_data}
 
-If information is unavailable, explicitly state that.
+LATEST NEWS:
+{news}
 
 Generate:
 
 1. Business Overview
 
-2. Financial Health Analysis
+2. Financial Analysis
 
-3. Growth Analysis
+3. News Impact Analysis
 
-4. Risk Analysis
+4. Risks
 
 5. Investment Thesis
 
-6. Missing Information Needed Before Investing
+6. Missing Information Required
 """
 
 response = ask_llm(prompt)
