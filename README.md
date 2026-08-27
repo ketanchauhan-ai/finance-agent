@@ -1,23 +1,47 @@
 # Finance Agent
 
-An AI-powered stock research assistant built using:
+An AI-powered financial research assistant built with Python, Ollama, Qwen, and Yahoo Finance.
 
-- Python
-- Ollama
-- Qwen
-- Yahoo Finance
+The application combines market data, financial metrics, and news intelligence with a locally hosted LLM to generate structured research insights for a selected stock.
 
-## Features
+## Why I Built This
 
-- Stock Analysis
-- Financial Metrics
-- AI Generated Investment Thesis
+The goal was to explore how an AI agent can combine:
 
-## Roadmap
+- External financial data
+- Structured data processing
+- News retrieval
+- Local LLM inference
+- Deterministic data retrieval
+- AI-generated reasoning
 
-- [x] Stock Data Retrieval
-- [x] Local LLM Integration
-- [ ] News Intelligence
-- [ ] Annual Report Analysis
-- [ ] Portfolio Intelligence
-- [ ] WealthOS
+into a single research workflow.
+
+## Architecture
+
+```text
+User
+  |
+  v
+Application / UI
+  |
+  v
+Finance Agent
+  |
+  +------------------+
+  |                  |
+  v                  v
+Stock Data        News Data
+Yahoo Finance    News Sources
+  |                  |
+  +--------+---------+
+           |
+           v
+      Data Processing
+           |
+           v
+       Local LLM
+     Ollama / Qwen
+           |
+           v
+   Research / Analysis

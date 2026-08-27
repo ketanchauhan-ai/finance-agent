@@ -1,17 +1,16 @@
-# news_data.py
-
 import feedparser
 
 def get_company_news(company):
+
     query = company.replace(" ", "+")
 
-    feed_url = f"https://news.google.com/rss/search?q={query}"
+    url = f"https://news.google.com/rss/search?q={query}"
 
-    feed = feedparser.parse(feed_url)
+    feed = feedparser.parse(url)
 
-    headlines = []
+    news = []
 
     for entry in feed.entries[:5]:
-        headlines.append(entry.title)
+        news.append(entry.title)
 
-    return headlines
+    return news
